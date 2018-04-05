@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>闲言碎语 on curve</title>
+    <link>/tags/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</link>
+    <description>Recent content in 闲言碎语 on curve</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>我的第一篇博客?</title>
+      <link>/2018/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>并不知道要说些什么, 但是纪念一下吧
+毕竟这是我的第一篇博客&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>
