@@ -6,10 +6,27 @@
     <description>Recent content in Posts on curve</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性回归</title>
+      <link>/2018/04/06/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/06/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <description>作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：
+简单，并可以提供充分可解释的的描述 在面对缺少足够的数据的训练集、低信噪比、稀疏数据时线性模型比一些新奇的非线性模型要优秀。 对输入变量的变化，可扩大其使用范围。 许多非线性模式是线性模型的推广，线性模型是其他模型的基础。  相比其他模型，线性模型似乎是一种简单的模型。但是想要了解透线性模型的方方面面绝非是一件容易的事情。
+作为一个实用主义者，我们将通过 R 语言完成线性模型建模的一套流程，并在其中探讨一些细节。
+首先，我们认为输入变量 \(X\) 和输出变量 \(Y\) 在现实生活中有着明确的线性关系。
+\[ Y=f(X)+\epsilon \]
+其中 \(\epsilon\) 为随机误差项，且均值为 0。这代表着，我们的模型是一个概率模型。其有着确定的部分（\(f(X)\)）和不确定的部分（\(\epsilon\)）。现实生活中自变量与因变量之间的关系往往是不确定的，因此我们需要用数据估计出：
+\[ \hat{Y}=\hat{f}(X) \]
+对应线性模型即为：
+\[ \hat { Y } = \hat { \beta } _ { 0} + \hat { \beta } _ { 1} X _ { 1 } + \dots + \hat { \beta } _ { k } X _ { k } \]</description>
+    </item>
     
     <item>
       <title>我的第一篇博客?</title>
@@ -23,45 +40,6 @@
 博客！写什么？随便啦。
 如果日后我成为了作家，那我应该会被归类到意识流？
 最后，虽然人是善变的，但是这么多年了，我依然想说：下雨天真的是好烦！</description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01/</guid>
-      <description>我的第一篇博客?       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
     </item>
     
   </channel>

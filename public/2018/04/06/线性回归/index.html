@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.38" />
+
+
+<title>线性回归 - curve</title>
+<meta property="og:title" content="线性回归 - curve">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">线性回归</h1>
+
+    
+    <span class="article-date">2018/04/06</span>
+    
+
+    <div class="article-content">
+      <p>作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：</p>
+<ol style="list-style-type: decimal">
+<li>简单，并可以提供充分可解释的的描述</li>
+<li>在面对缺少足够的数据的训练集、低信噪比、稀疏数据时线性模型比一些新奇的非线性模型要优秀。</li>
+<li>对输入变量的变化，可扩大其使用范围。</li>
+<li>许多非线性模式是线性模型的推广，线性模型是其他模型的基础。</li>
+</ol>
+<p>相比其他模型，线性模型似乎是一种简单的模型。但是想要了解透线性模型的方方面面绝非是一件容易的事情。</p>
+<p>作为一个实用主义者，我们将通过 R 语言完成线性模型建模的一套流程，并在其中探讨一些细节。</p>
+<p>首先，我们认为输入变量 <span class="math inline">\(X\)</span> 和输出变量 <span class="math inline">\(Y\)</span> 在现实生活中有着明确的线性关系。</p>
+<p><span class="math display">\[
+Y=f(X)+\epsilon
+\]</span></p>
+<p>其中 <span class="math inline">\(\epsilon\)</span> 为随机误差项，且均值为 0。这代表着，我们的模型是一个概率模型。其有着确定的部分（<span class="math inline">\(f(X)\)</span>）和不确定的部分（<span class="math inline">\(\epsilon\)</span>）。现实生活中自变量与因变量之间的关系往往是不确定的，因此我们需要用数据估计出：</p>
+<p><span class="math display">\[
+\hat{Y}=\hat{f}(X)
+\]</span></p>
+<p>对应线性模型即为：</p>
+<p><span class="math display">\[
+\hat { Y } = \hat { \beta } _ { 0} + \hat { \beta } _ { 1} X _ { 1 } + \dots + \hat { \beta } _ { k } X _ { k  } 
+\]</span></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
