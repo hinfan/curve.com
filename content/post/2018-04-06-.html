@@ -11,6 +11,7 @@ tags:
 
 
 
+<p>(未完成！)</p>
 <p>作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：</p>
 <ol style="list-style-type: decimal">
 <li>简单，并可以提供充分可解释的的描述</li>
@@ -32,3 +33,28 @@ Y=f(X)+\epsilon
 <p><span class="math display">\[
 \hat { Y } = \hat { \beta } _ { 0} + \hat { \beta } _ { 1} X _ { 1 } + \dots + \hat { \beta } _ { k } X _ { k  } 
 \]</span></p>
+<hr />
+<div class="section level2">
+<h2>多元回归中的一些重要问题</h2>
+<p>在做多元回归的时候我们经常会面对如下一些问题：</p>
+<ol style="list-style-type: decimal">
+<li>预测变量中是否是否至少有一个可以用来预测响应变量</li>
+<li>所有预测变量都有助于理解 Y 吗？或仅仅是预测变量的一个子集对预测有用？</li>
+<li>模型对数据拟合程度如何？</li>
+<li>给定一组预测变量的值，响应值应预测为多少？多做预测的准确程度如何。</li>
+</ol>
+<div id="f-test" class="section level3">
+<h3>F test</h3>
+<p>如我们在一元回归中要验证原假设 <span class="math inline">\(\beta_1 = 0\)</span> 一样 （在一元线性回归中由于只有一个系数，因此模型的 F 检验等于等同于相应系数的 t 检验）多元回归中模型的原假设则为 <span class="math inline">\(\beta_1=\beta_2=\dots=\beta_p=0\)</span>. 备择假设为：至少有一个 <span class="math inline">\(\beta_j\)</span> 不为零。</p>
+<p>同样我们需要计算 F 统计量：</p>
+<p><span class="math display">\[
+F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}
+\]</span></p>
+<p>如果原假设正确，则：</p>
+<p><span class="math display">\[
+E\{RSS/(n-p-1)\}=\sigma^2\\
+E\{(TSS-RSS)/p\}=\sigma^2
+\]</span></p>
+<p>因此，若预测变量与响应变量无关时，F 统计量应该是接近 1 的。在误差项 <span class="math inline">\(\sigma_j\)</span> 满足正态分布的时候，F 统计量满足 F 分布。我们可以通过对应的 p 值来做判断。</p>
+</div>
+</div>

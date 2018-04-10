@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/04/10/mapreduce/</loc>
+    <lastmod>2018-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2018-04-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/04/06/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
     <lastmod>2018-04-06T00:00:00+00:00</lastmod>
   </url>
@@ -10,11 +20,6 @@
   <url>
     <loc>/2018/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2018-04-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
@@ -30,7 +35,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,8 +52,20 @@
   </url>
   
   <url>
+    <loc>/tags/zen/</loc>
+    <lastmod>2018-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/zen/</loc>
+    <lastmod>2018-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2018-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

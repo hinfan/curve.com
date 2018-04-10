@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zen on curve</title>
+    <link>/categories/zen/</link>
+    <description>Recent content in Zen on curve</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/zen/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MapReduce？</title>
+      <link>/2018/04/10/mapreduce/</link>
+      <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/10/mapreduce/</guid>
+      <description>一直以来都很好奇 MapReduce 到底是个啥。自己也查阅了一些资料，并未成功的将这个抽象的概念转化为具体的事物。直到前几天帮朋友处理数据的时候，顿时茅塞顿开。原本也并不是什么很困难的事情，只不过友人的电脑可能有些陈旧，读取并合并28个各百万行的数据有些吃力。
+想来最近学习了 purrr 包，正好可以一展拳脚。
+library(data.table) library(purrr) ## 获取所有 csv 文件(并不严谨哦) csvs &amp;lt;- grep(&amp;quot;.csv&amp;quot;, list.files(), value = TRUE) data &amp;lt;- map(csvs, fread) %&amp;gt;% reduce(rbind)  (28个csv，用 map，fread 读取大概要 27s。reduce(., rbind) 部分要18秒左右。最后得到一个不到3000W行的dataframe。如果你看过我朋友，一个一个 data_i &amp;lt;- read.csv(&amp;hellip;) 的话，你会发现上面的方式是多么的简洁高效。)
+map？reduce？MapReduce？似乎在那一刻我明白了点什么。(未完..)</description>
+    </item>
+    
+  </channel>
+</rss>
