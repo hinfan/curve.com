@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">线性回归</h1>
@@ -109,6 +109,38 @@ E\{RSS/(n-p-1)\}=\sigma^2\\
 E\{(TSS-RSS)/p\}=\sigma^2
 \]</span></p>
 <p>因此，若预测变量与响应变量无关时，F 统计量应该是接近 1 的。在误差项 <span class="math inline">\(\sigma_j\)</span> 满足正态分布的时候，F 统计量满足 F 分布。我们可以通过对应的 p 值来做判断。</p>
+<p>问题一：一些预测变量单独和响应变量建立线性模型时，会得到一个较小的 p 值。但是加入其他变量后，反而会得到一个较大的 p 值。这似乎有些违背我们的直觉。</p>
+<p>首先，F 统计量给我们提供了，预测变量中是否至少有一个变量可以用来预测响应变量的判断依据。但是有时我们想检验的是特定的子集。</p>
+<p>事实上每个变量的 t 检验都等价于不含该变量，但包含其他变量模型的 F 检验（t 值的平方即 F 统计量）。当子集内变量个数为 1 的时候，其反映了该变量加入模型所产生的偏效应(partial effect)。这些统计量提供的信息表明了在控制所有其他预测变量之后，每个预测变量与响应变量之间的关系。</p>
+<p>因此，对于上面的问题的合理解释是，没有任何证据表明当<strong>其他变量加入模型后</strong>，其与响应变量相关。</p>
+<p>问题二：既然能得到所有的预测变量的 p 值，为什么还要看整体的F 统计量呢？似乎如果有一个预测变量的 p 值很小，那么至少有一个预测变量与响应变量相关。</p>
+<p>事实上这种逻辑是有缺陷的，特别是变量数目很大的时候。假设我们有与 Y 无关的 100 个变量。在这种情况下，约有 5% 的变量会得到 小于 .05 的 p 值。而事实上它们并没有任何的关系。所以用单独的 t 值和对应的 p 值很有可能会错误地得到相关性的结论。而 F 统计量则会权衡变量个数，在原假设成立的时候，p &lt; .05 的概率只有 5%。</p>
+<p>（偏效应也就是指某自变量（解释变量）具有对因变量（被解释变量）在其他情况不变条件下的解释的效应。参考来源：伍德里奇《计量经济学导论》第四版。P70）</p>
+</div>
+<div class="section level3">
+<h3>选定重要变量</h3>
+<p>有如下指标用来判断模型质量：</p>
+<ol style="list-style-type: decimal">
+<li>Mallow’s 统计量 <span class="math inline">\(C_p\)</span></li>
+<li>AIC</li>
+<li>BIC</li>
+<li>adjusted <span class="math inline">\(R^2\)</span></li>
+</ol>
+<div id="c_p" class="section level4">
+<h4><span class="math inline">\(C_p\)</span>值</h4>
+<p>对于线性模型：</p>
+<p><span class="math display">\[
+Y=\beta_0+\beta_1X_1+\beta_2X_2+\dots+\beta_pX_p+\epsilon
+\]</span></p>
+<p>采用最小二乘法拟合一个包含 d 个预测变量的模型，<span class="math inline">\(C_p\)</span> 值计算如下：</p>
+<p><span class="math display">\[
+C _ { p } = \frac { \| Y - X \hat { \beta } _ { I } \| ^ { 2} } { \hat { \sigma } ^ { 2} } + 2\hat { d f } - n
+\]</span></p>
+<p>等价于：</p>
+<p><span class="math display">\[
+C_p=\frac{1}{n}(RSS+2d\hat{\sigma})
+\]</span></p>
+</div>
 </div>
 </div>
 

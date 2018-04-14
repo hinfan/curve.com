@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Read on curve</title>
+    <link>/categories/read/</link>
+    <description>Recent content in Read on curve</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/read/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AIC, Cp and estimators of loss for elliptically symmetric distributions</title>
+      <link>/2018/04/14/aic-cp-and-estimators-of-loss-for-elliptically-symmetric-distributions/</link>
+      <pubDate>Sat, 14 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/14/aic-cp-and-estimators-of-loss-for-elliptically-symmetric-distributions/</guid>
+      <description>这个是在查找 $C_p$ 统计量时，无意看到的一篇论文。虽然英文很渣，但是还是获益匪浅（未完&amp;hellip;）
+AIC, Cp and estimators of loss for elliptically symmetric distributions Introduction 介绍 The problem of model selection has generated a lot of interest for many decades now and especially recently with the increased size of datasets. In such a context, it is important to model the observed data in a way that accounts for the sparsity of the parameter space. The principle of parsimony helps to avoid classical issues such as overfitting or computational error.</description>
+    </item>
+    
+  </channel>
+</rss>
