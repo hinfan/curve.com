@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.38" />
+
+
+<title>两个新坑 - curve</title>
+<meta property="og:title" content="两个新坑 - curve">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">两个新坑</h1>
+
+    
+    <span class="article-date">2018/04/15</span>
+    
+
+    <div class="article-content">
+      
+
+<h1 id="aws-shiny-server">AWS &amp; Shiny-server</h1>
+
+<p>从第一次见到 <a href="http://shiny.rstudio.com/">Shiny</a> 到现在，Shiny 都一直都深深地吸引着我。你不必懂 JavaScript、CSS 和 HTML 就可生成可交互的 APP。</p>
+
+<p>但是 Shiny 学习起来并不轻松，同时将 Shiny app 部署到网络上， 并分享给朋友也并不是一件容易的事情。虽然 Rstudio 贴心的提供了 <a href="http://www.shinyapps.io/">shinyapps.io</a>，配合上 Rstudio 可以轻松部署到  web 上。但是免费套餐的诸多限制，和以美元结算的套餐似乎都不是完美是选择。  好在<a href="https://amazonaws-china.com/cn/">AWS</a>有免费的 EC-2 可以部署服务器，配置 Shiny-server。</p>
+
+<p>但是作为一个非计算机专业的学生，面对着通过的 ssh 连接到 Ubuntu 虚拟机的命令行，让习惯了用 GUI 的系统的我着实一脸懵逼。经过了一番捣鼓，最后还是通过 Louis Aslett 友人提供的 <a href="http://www.louisaslett.com/RStudio_AMI/">RStudio Server Amazon Machine Image</a>，避免了在完全不熟悉的 Ubuntu 上配置 R、Rstudio-server 和 shiny—server 的麻烦。事实上最初就是卡在这里了。</p>
+
+<p>现在，我们可以通过 web 在浏览器上端访问 Rstudio 愉快地制作 shiny app 了。</p>
+
+<p>附上半年前做的一个关于自改革开放以来的各省人均 GDP 的 <a href="http://13.124.249.28:3838/gdp/">APP</a>。</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+

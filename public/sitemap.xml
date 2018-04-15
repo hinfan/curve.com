@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/04/15/%E4%B8%A4%E4%B8%AA%E6%96%B0%E5%9D%91/</loc>
+    <lastmod>2018-04-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/04/14/aic-cp-and-estimators-of-loss-for-elliptically-symmetric-distributions/</loc>
     <lastmod>2018-04-14T00:00:00+00:00</lastmod>
   </url>
@@ -46,7 +51,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -82,13 +87,13 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-04-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</loc>
-    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
