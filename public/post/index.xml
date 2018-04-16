@@ -43,7 +43,7 @@ AIC, Cp and estimators of loss for elliptically symmetric distributions Introduc
       <description>一直以来都很好奇 MapReduce 到底是个啥。自己也查阅了一些资料，并未成功的将这个抽象的概念转化为具体的事物。直到前几天帮朋友处理数据的时候，顿时茅塞顿开。原本也并不是什么很困难的事情，只不过友人的电脑可能有些陈旧，读取并合并28个各百万行的数据有些吃力。
 想来最近学习了 purrr 包，正好可以一展拳脚。
 library(data.table) library(purrr) ## 获取所有 csv 文件(并不严谨哦) csvs &amp;lt;- grep(&amp;quot;.csv&amp;quot;, list.files(), value = TRUE) data &amp;lt;- map(csvs, fread) %&amp;gt;% reduce(rbind)  (28个csv，用 map，fread 读取大概要 27s。reduce(., rbind) 部分要18秒左右。最后得到一个不到3000W行的dataframe。如果你看过我朋友，一个一个 data_i &amp;lt;- read.csv(&amp;hellip;) 的话，你会发现上面的方式是多么的简洁高效。)
-map？reduce？MapReduce？似乎在那一刻我明白了点什么。(未完..)</description>
+map？reduce？MapReduce？似乎在那一刻我明白了点什么。</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@ map？reduce？MapReduce？似乎在那一刻我明白了点什么。(未完..)<
       
       <guid>/2018/04/06/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
       <description>(未完成！)
-作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：
+简述 作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：
 简单，并可以提供充分可解释的的描述 在面对缺少足够的数据的训练集、低信噪比、稀疏数据时线性模型比一些新奇的非线性模型要优秀。 对输入变量的变化，可扩大其使用范围。 许多非线性模式是线性模型的推广，线性模型是其他模型的基础。  相比其他模型，线性模型似乎是一种简单的模型。但是想要了解透线性模型的方方面面绝非是一件容易的事情。
 作为一个实用主义者，我们将通过 R 语言完成线性模型建模的一套流程，并在其中探讨一些细节。
 首先，我们认为输入变量 \(X\) 和输出变量 \(Y\) 在现实生活中有着明确的线性关系。
@@ -76,6 +76,15 @@ map？reduce？MapReduce？似乎在那一刻我明白了点什么。(未完..)<
 博客！写什么？随便啦。
 如果日后我成为了作家，那我应该会被归类到意识流？
 最后，虽然人是善变的，但是这么多年了，我依然想说：下雨天真的是好烦！</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>两个新坑       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
     </item>
     
   </channel>

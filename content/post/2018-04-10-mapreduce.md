@@ -25,4 +25,5 @@ data <- map(csvs, fread) %>%
 
 (28个csv，用 map，fread 读取大概要 27s。reduce(., rbind) 部分要18秒左右。最后得到一个不到3000W行的dataframe。如果你看过我朋友，一个一个 data_i <- read.csv(...) 的话，你会发现上面的方式是多么的简洁高效。)
   
- map？reduce？MapReduce？似乎在那一刻我明白了点什么。(未完..)
+ map？reduce？MapReduce？似乎在那一刻我明白了点什么。
+ 

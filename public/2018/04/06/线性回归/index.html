@@ -65,6 +65,8 @@
 
     <div class="article-content">
       <p>(未完成！)</p>
+<div class="section level2">
+<h2>简述</h2>
 <p>作为统计学的支柱，线性回归有着不可替代的作用。同时线性模型同时还拥有着许多优点：</p>
 <ol style="list-style-type: decimal">
 <li>简单，并可以提供充分可解释的的描述</li>
@@ -86,7 +88,22 @@ Y=f(X)+\epsilon
 <p><span class="math display">\[
 \hat { Y } = \hat { \beta } _ { 0} + \hat { \beta } _ { 1} X _ { 1 } + \dots + \hat { \beta } _ { k } X _ { k  } 
 \]</span></p>
+</div>
+<div class="section level2">
+<h2>现实问题</h2>
+<p>线性模型解决的现实问题：</p>
+<p>以广告营销为例</p>
+<ol style="list-style-type: decimal">
+<li>广告预算和销量有关吗？（自变量和因变量之间有关吗）</li>
+<li>如果有关，强度如何</li>
+<li>哪些媒体能促进销量。</li>
+<li>如何精确估计自变量对因变量的影响</li>
+<li>对未来销量预测精度如何</li>
+<li>这种关系是线性的吗</li>
+<li>变量之间是否存在协同效应</li>
+</ol>
 <hr />
+</div>
 <div class="section level2">
 <h2>多元回归中的一些重要问题</h2>
 <p>在做多元回归的时候我们经常会面对如下一些问题：</p>
@@ -97,7 +114,7 @@ Y=f(X)+\epsilon
 <li>给定一组预测变量的值，响应值应预测为多少？多做预测的准确程度如何。</li>
 </ol>
 <div id="f-test" class="section level3">
-<h3>F test</h3>
+<h3>1.F test</h3>
 <p>如我们在一元回归中要验证原假设 <span class="math inline">\(\beta_1 = 0\)</span> 一样 （在一元线性回归中由于只有一个系数，因此模型的 F 检验等于等同于相应系数的 t 检验）多元回归中模型的原假设则为 <span class="math inline">\(\beta_1=\beta_2=\dots=\beta_p=0\)</span>. 备择假设为：至少有一个 <span class="math inline">\(\beta_j\)</span> 不为零。</p>
 <p>同样我们需要计算 F 统计量：</p>
 <p><span class="math display">\[
@@ -141,6 +158,43 @@ C _ { p } = \frac { \| Y - X \hat { \beta } _ { I } \| ^ { 2} } { \hat { \sigma 
 C_p=\frac{1}{n}(RSS+2d\hat{\sigma})
 \]</span></p>
 </div>
+<div id="aic" class="section level4">
+<h4>AIC</h4>
+<p><span class="math display">\[
+AIC=\frac{1}{n\hat{\sigma}}(RSS+2d\hat{\sigma}^2)
+\]</span></p>
+<p>为了，简化并没有加入常数项，对于最小二乘模型 <span class="math inline">\(C_p\)</span> 和 <span class="math inline">\(AIC\)</span> 互成比例。</p>
+</div>
+<div id="bic" class="section level4">
+<h4>BIC</h4>
+<p><span class="math display">\[
+BIC =\frac{1}{n}（RSS+log(n)d\hat{\sigma}^2）
+\]</span></p>
+</div>
+<div id="adjusted-r2" class="section level4">
+<h4>adjusted <span class="math inline">\(R^2\)</span></h4>
+<p><span class="math display">\[
+adjusted\ R^2 = 1-\frac{RSS/(n-d-1)}{TSS/(n-1)}
+\]</span></p>
+</div>
+<div class="section level4">
+<h4>三种经典选择方法</h4>
+<ol style="list-style-type: decimal">
+<li>forward selection</li>
+<li>backward selection</li>
+<li>mixed selection</li>
+</ol>
+<p>这部分内容会在后面通过实战进行讲解。</p>
+</div>
+</div>
+<div class="section level3">
+<h3>模型拟合</h3>
+<p>衡量模型优劣的两个指标</p>
+<ol style="list-style-type: decimal">
+<li>RSE</li>
+<li><span class="math inline">\(R^2\)</span></li>
+</ol>
+<p>在简单线性回归中 <span class="math inline">\(R^2\)</span> 是相关系数的平方</p>
 </div>
 </div>
 
