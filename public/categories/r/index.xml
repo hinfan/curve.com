@@ -6,10 +6,23 @@
     <description>Recent content in R on curve</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forcats 和 stringsAsFactors</title>
+      <link>/2018/04/17/forcats-stringsasfactors/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/17/forcats-stringsasfactors/</guid>
+      <description>今天来聊聊 forcats 包和 stringsAsFactors。
+一切起因是在我给 map 添加图例的时候发现，分类变量(factor)有大概有快二十个。作为一个完美主义者，自然不能接受一长溜的图例，更重要的其中掺杂一些无足轻重的变量。这时我便想到了 forcats 包中的 fct_collapse() 函数，将其中一些变量折叠(collapse)成“其他”。
+library(forcats) partyid2 &amp;lt;- fct_collapse(gss_cat$partyid, missing = c(&amp;quot;No answer&amp;quot;, &amp;quot;Don&amp;#39;t know&amp;quot;), other = &amp;quot;Other party&amp;quot;, rep = c(&amp;quot;Strong republican&amp;quot;, &amp;quot;Not str republican&amp;quot;), ind = c(&amp;quot;Ind,near rep&amp;quot;, &amp;quot;Independent&amp;quot;, &amp;quot;Ind,near dem&amp;quot;), dem = c(&amp;quot;Not str democrat&amp;quot;, &amp;quot;Strong democrat&amp;quot;) ) 看了眼示例，脑补了一下
+fct_collapse(factor, A = A, B = B, ... , other = c(K, L, ...) ) 放弃了。坚持不懈的我发现了 frc_lump(). tips：lump(使成块状)。
+x &amp;lt;- factor(rep(LETTERS[1:9], times = c(40, 10, 5, 27, 1, 1, 1, 1, 1))) x %&amp;gt;% table() ## .</description>
+    </item>
     
     <item>
       <title>线性回归</title>
