@@ -71,4 +71,4 @@ ggplot(aes(tvhours, fct_reorder(relig, tvhours))) +
   
 同时，随着时间的推移，R 语言受众的群体也不仅仅只限于统计学家了，R 可以处理的内容也越来越广泛。作者也指出，他发现疑惑这个现象的人通常是在做一些非传统统计的事情。  
 
-想想也是啊，当我处理用爬虫抓取下来的数据时，发现在 `as.data.frame()`, 中忘记加上 `stringsAsFactors = FALSE` 时，也是恨不得扇自己几巴掌，怎么就是记不住呢。而当你做其他数据分析的时候你会发现，"It fits, perfect" 
+想想也是啊，当我处理用爬虫抓取下来的数据时，发现在 `as.data.frame()`, 中忘记加上 `stringsAsFactors = FALSE` 时，也是恨不得扇自己几巴掌，怎么就是记不住呢。而当你做其他数据分析的时候你会发现，"It fits, perfect" 。

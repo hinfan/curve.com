@@ -116,7 +116,7 @@ ggplot(aes(tvhours, fct_reorder(relig, tvhours))) +
 <p>在研究 forcats 包的时候一不小心打开了 Hadley 大神安利的一篇文章 – <a href="https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/">stringsAsFactors: An unauthorized biography</a>。主要讲了 <code>read.csv</code> 或者 <code>read.table</code> 函数中 <code>stringsAsFactors</code> 默认值为什么是 TRUE。看玩之后恍然大悟，“问题”的根源总是与其的历史有着密切的关系。</p>
 <p>似乎对于现在 R user 来说 <code>stringsAsFactors = FALSE</code> 是个更好的选择，但是自 R 语言诞生之初，其读取字符型数据的时候，都会将其转化为 factors。一是因为：作为一个为统计学家服务的语言，面对大多数的 tabular 数据中出现的字符型数据，将其视为分类变量是一件理所当然的事情。这不仅放方便了和建模函数的搭配，同时也节约了存储空间（factor 是以整数型和标签保存的）。</p>
 <p>同时，随着时间的推移，R 语言受众的群体也不仅仅只限于统计学家了，R 可以处理的内容也越来越广泛。作者也指出，他发现疑惑这个现象的人通常是在做一些非传统统计的事情。</p>
-<p>想想也是啊，当我处理用爬虫抓取下来的数据时，发现在 <code>as.data.frame()</code>, 中忘记加上 <code>stringsAsFactors = FALSE</code> 时，也是恨不得扇自己几巴掌，怎么就是记不住呢。而当你做其他数据分析的时候你会发现，“It fits, perfect”</p>
+<p>想想也是啊，当我处理用爬虫抓取下来的数据时，发现在 <code>as.data.frame()</code>, 中忘记加上 <code>stringsAsFactors = FALSE</code> 时，也是恨不得扇自己几巴掌，怎么就是记不住呢。而当你做其他数据分析的时候你会发现，“It fits, perfect” 。</p>
 
     </div>
   </article>
