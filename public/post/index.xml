@@ -6,10 +6,21 @@
     <description>Recent content in Posts on curve</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>出院</title>
+      <link>/2018/04/21/%E5%87%BA%E9%99%A2/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/21/%E5%87%BA%E9%99%A2/</guid>
+      <description>仔细思索了一下，这确确实实是我第一次住院，尽管连24个小时都没有呆够。但也确确实实在手术室呆了约半个小时，也在医院睡了一晚。
+周四的时候，医院给我打来了电话通知我周五过来做手术吧。距离第一次医生建议我做手术已经过去了差不多一个半月。
+大概是在去年 11 月份左右的的时候觉得左眼睛有着明显的不适。当时觉得可能是用眼过度了，觉得休息休息就好了，期间断断续续，一直忍到今年 3 月。就诊后，医生说我是因为倒睫 导致眼角膜受损，建议做手术。</description>
+    </item>
     
     <item>
       <title>Forcats 和 stringsAsFactors</title>
