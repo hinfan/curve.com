@@ -1,11 +1,10 @@
 ---
-title: 如何制作一幅关系网图
-author: Curve
+title: "如何制作一幅关系网图"
+author: "Curve"
 date: '2018-04-24'
 slug: ''
-categories:
-  - R
 tags: []
+categories: R
 ---
 
 ```{r include=FALSE}
@@ -16,6 +15,9 @@ library(janeaustenr)
 library(tidyr)
 library(ggraph)
 library(igraph)
+library(showtext)
+library(purrr)
+showtext.auto(enable = TRUE)
 
 austen_bigrams <- austen_books() %>%
   unnest_tokens(bigram, text, token = "ngrams", n = 2)

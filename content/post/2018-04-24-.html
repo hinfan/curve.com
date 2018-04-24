@@ -1,0 +1,111 @@
+---
+title: "如何制作一幅关系网图"
+author: "Curve"
+date: '2018-04-24'
+slug: ''
+tags: []
+categories: R
+---
+
+
+
+<p>近日简单看了下 <a href="https://www.tidytextmining.com/ngrams.html">Text Mining with R</a>。其中第四章中讲到了如何在文本分析中进行词间关系分析。</p>
+<pre class="r"><code>library(ggraph)
+set.seed(2017)
+
+ggraph(bigram_graph, layout = &quot;fr&quot;) +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
+  theme_bw()</code></pre>
+<p><img src="/post/2018-04-24-_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>便联想到我的一组数据：</p>
+<pre class="r"><code>head(df[c(1,5)])</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   矿山名称                                           开采矿种
+##   &lt;chr&gt;                                              &lt;chr&gt;   
+## 1 紫金矿业集团股份有限公司紫金山金铜矿               金      
+## 2 昆明安信达科技有限公司河口县芹菜塘铅锌矿           多金属  
+## 3 西藏巨龙铜业有限公司驱龙铜多金属矿                 铜      
+## 4 江西铜业股份有限公司德兴铜矿                       铜      
+## 5 内蒙古自治区新巴尔虎右旗乌努格吐山铜钼矿           多金属  
+## 6 锡林郭勒盟金仓矿业有限责任公司迪彦钦阿木铅锌银钼矿 钼</code></pre>
+<p>金属伴生是一种常见的现象。比如，从矿山命名中包含着“金—铜矿”，“铅-锌矿”，“铅-锌-银-钼矿”等等说明。不同的金属之间也有着不同的伴生关系，我们该如何呈现出这种关系呢？关系网图是一个很好的选择。</p>
+<p>经过一番复杂的处理我们提取到了关键词：</p>
+<pre class="r"><code>head(kw)</code></pre>
+<pre><code>##   index    chara len
+## 1     2     铅锌   2
+## 2     5     铜钼   2
+## 3     6 铅锌银钼   4
+## 4    12     镍铜   2
+## 5    19     铜钼   2
+## 6    29     钼铜   2</code></pre>
+<p>因为探讨的是二元关系，则对应的数据格式应该是：</p>
+<pre class="r"><code>head(bigram_counts)</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   word1   word2         n
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;
+## 1 sir     thomas      287
+## 2 miss    crawford    215
+## 3 captain wentworth   170
+## 4 miss    woodhouse   162
+## 5 frank   churchill   132
+## 6 lady    russell     118</code></pre>
+<p>而我们的 keyword 则是多元的。如，“铜铅锌”，则需要拆分为“铜铅”、“铜锌”，“铅锌”。</p>
+<pre class="r"><code>para &lt;- unique(kw$len) %&gt;% sort()
+kw &lt;- kw %&gt;% 
+  split(.$len) %&gt;% 
+  map2(para, function(x, y) {
+  df &lt;- strsplit(x$chara, &quot;&quot;) %&gt;% 
+    unlist() %&gt;% 
+    matrix(ncol = y, byrow = TRUE) %&gt;% 
+    as.data.frame(stringsAsFactors = FALSE) 
+  map(as.data.frame(combn(y, 2)), function(z) select(df, z)) %&gt;% 
+    map(`names&lt;-`, c(&quot;V1&quot;, &quot;V2&quot;)) %&gt;% 
+    reduce(rbind)
+}) %&gt;% 
+  reduce(rbind) %&gt;% 
+  mutate(word1 = ifelse(V1 &lt; V2, V1, V2),
+         word2 = ifelse(V1 &lt; V2, V2, V1)) %&gt;% 
+  group_by(word1, word2) %&gt;% 
+  count(sort = TRUE)</code></pre>
+<p>经过一系列操作，我们得到了我需要的格式。</p>
+<pre class="r"><code>library(ggraph)
+library(igraph)
+
+kw_graph &lt;- kw %&gt;% 
+  graph_from_data_frame()
+
+kw_graph</code></pre>
+<pre><code>## IGRAPH 30ebd1d DN-- 16 47 -- 
+## + attr: name (v/c), n (e/n)
+## + edges from 30ebd1d (vertex names):
+##  [1] 铅-&gt;锌 铅-&gt;银 银-&gt;锌 铜-&gt;锌 钼-&gt;铜 铅-&gt;铜 铜-&gt;镍 钼-&gt;铅 钼-&gt;镍 铜-&gt;银
+## [11] 锌-&gt;锡 钼-&gt;锌 金-&gt;铅 钨-&gt;钼 金-&gt;铜 钨-&gt;锡 金-&gt;锌 钨-&gt;铜 铅-&gt;锑 锌-&gt;锑
+## [21] 铜-&gt;锡 金-&gt;锑 钴-&gt;铜 钼-&gt;银 铅-&gt;锡 银-&gt;锑 金-&gt;银 钽-&gt;铌 金-&gt;钼 钨-&gt;锌
+## [31] 钴-&gt;镍 钼-&gt;铋 钨-&gt;铅 钨-&gt;铍 钨-&gt;银 钴-&gt;铅 钴-&gt;银 钴-&gt;锌 钴-&gt;锡 钼-&gt;铍
+## [41] 钽-&gt;锡 铅-&gt;锗 铌-&gt;锡 铜-&gt;锑 银-&gt;锡 锌-&gt;锗 锑-&gt;锡</code></pre>
+<p>作图！</p>
+<pre class="r"><code>ggraph(kw_graph, layout = &quot;fr&quot;) +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
+  theme_bw()</code></pre>
+<p><img src="/post/2018-04-24-_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>换个主题</p>
+<pre class="r"><code>set.seed(2016)
+
+a &lt;- grid::arrow(type = &quot;closed&quot;, length = unit(.15, &quot;inches&quot;))
+
+ggraph(kw_graph, layout = &quot;fr&quot;) +
+  geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
+                 arrow = a, end_cap = circle(.07, &#39;inches&#39;)) +
+  geom_node_point(color = &quot;lightblue&quot;, size = 5) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
+  theme_void()</code></pre>
+<p><img src="/post/2018-04-24-_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>更多细节可以参考 <a href="https://github.com/thomasp85/ggraph">thomasp85/ggraph: Grammar of Graph Graphics</a>。</p>
+<div class="section level2">
+<h2>总结</h2>
+<p>作图 = 正确的数据格式 + 正确的函数</p>
+</div>
