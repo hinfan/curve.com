@@ -1,0 +1,63 @@
+---
+title: Faster
+author: Curve
+date: '2018-04-29'
+slug: faster
+categories:
+  - R
+tags:
+  - purrr
+---
+
+得到同样结果的方式或许多种多样，但是简洁高效的方式或许要废些脑子。在 R 语言上追求更快，大致有三种方式：
+
+1. 避免循环，使用向量化计算
+2. 如果无法避免，通过 Rcpp 将代码编译成 C++
+3. 多线程
+
+---
+
+```{r warning=FALSE, include=FALSE}
+library(readxl)
+library(dplyr)
+library(data.table)
+data <- read_xlsx("/Users/cvrve/Desktop/data.xlsx")
+```
+
+假如你有这样一组数据:
+
+```{r}
+head(data[2:4])
+```
+
+数据框的每一行都折叠了若干条记录，不仅看起来让人觉得很不舒服，并且还无法向下进行分析。这里便需要将数据向下展开，每个格子放一个数据。无论如何我们都是要将数据拆开的：
+
+```{r}
+system.time(unfold <- strsplit(data$报告类型, ","))
+```
+
+虽然 `strsplit()` 返回的是列表，但是通过 `unlist()` 我们可以得到数据的一列。
+
+```{r}
+head(unlist(unfold))
+```
+
+重复这个操作我们便可以得到所有展开的列，合并之后就可以得到我们想到的数据格式了。
+
+```{r message=FALSE, warning=FALSE}
+library(purrr)
+
+system.time({
+  unfold <- map(data[-1], strsplit, ",") %>% 
+    map(unlist) %>% 
+    as_tibble()
+})
+
+head(unfold)
+```
+
+Bingo!
+
+
+
+

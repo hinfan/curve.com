@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.38" />
+
+
+<title>Faster - curve</title>
+<meta property="og:title" content="Faster - curve">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Faster</h1>
+
+    
+    <span class="article-date">2018/04/29</span>
+    
+
+    <div class="article-content">
+      <p>得到同样结果的方式或许多种多样，但是简洁高效的方式或许要废些脑子。在 R 语言上追求更快，大致有三种方式：</p>
+<ol style="list-style-type: decimal">
+<li>避免循环，使用向量化计算</li>
+<li>如果无法避免，通过 Rcpp 将代码编译成 C++</li>
+<li>多线程</li>
+</ol>
+<hr />
+<p>假如你有这样一组数据:</p>
+<pre class="r"><code>head(data[2:4])</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   报告类型                  分类                         类别             
+##   &lt;chr&gt;                     &lt;chr&gt;                        &lt;chr&gt;            
+## 1 贷款,贷款,信用卡,信用卡,信用卡,信用卡,信用… 个人住房贷款,个人住房贷款,贷记卡,贷记卡,贷记卡,贷… 调动,调动,正常,正常,正常,正…
+## 2 贷款,贷款,贷款,贷款,信用卡,信用卡,信用卡,… 个人住房贷款,个人消费贷款,个人消费贷款,个人经营性贷… 正常,正常,正常,正常,正常,正…
+## 3 贷款,贷款,信用卡,贷款,贷款,贷款,贷款… 个人消费贷款,个人经营性贷款,贷记卡,其他,其他,其他… 正常,正常,正常,正常,正常,正…
+## 4 贷款,贷款,贷款,信用卡,信用卡,信用卡,贷款… 个人经营性贷款,个人经营性贷款,个人经营性贷款,贷记卡… 正常,正常,正常,正常,正常,正…
+## 5 贷款,信用卡,信用卡,信用卡 个人经营性贷款,贷记卡,贷记卡,贷记卡… 正常,正常,正常,正常…
+## 6 贷款,信用卡,信用卡,信用卡,信用卡,信用卡,信… 个人经营性贷款,贷记卡,贷记卡,贷记卡,贷记卡,贷记卡… 正常,正常,正常,正常,正常,正…</code></pre>
+<p>数据框的每一行都折叠了若干条记录，不仅看起来让人觉得很不舒服，并且还无法向下进行分析。这里便需要将数据向下展开，每个格子放一个数据。无论如何我们都是要将数据拆开的：</p>
+<pre class="r"><code>system.time(unfold &lt;- strsplit(data$报告类型, &quot;,&quot;))</code></pre>
+<pre><code>##    user  system elapsed 
+##   0.017   0.000   0.017</code></pre>
+<p>虽然 <code>strsplit()</code> 返回的是列表，但是通过 <code>unlist()</code> 我们可以得到数据的一列。</p>
+<pre class="r"><code>head(unlist(unfold))</code></pre>
+<pre><code>## [1] &quot;贷款&quot;   &quot;贷款&quot;   &quot;信用卡&quot; &quot;信用卡&quot; &quot;信用卡&quot; &quot;信用卡&quot;</code></pre>
+<p>重复这个操作我们便可以得到所有展开的列，合并之后就可以得到我们想到的数据格式了。</p>
+<pre class="r"><code>library(purrr)
+
+system.time({
+  unfold &lt;- map(data[-1], strsplit, &quot;,&quot;) %&gt;% 
+    map(unlist) %&gt;% 
+    as_tibble()
+})</code></pre>
+<pre><code>##    user  system elapsed 
+##   0.119   0.001   0.120</code></pre>
+<pre class="r"><code>head(unfold)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   报告类型 分类         类别  信用额度  贷款余额  每月供款 剩余期限
+##   &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;   
+## 1 贷款     个人住房贷款 调动  260000.00 256219.00 1464.00  344     
+## 2 贷款     个人住房贷款 调动  450000.00 442111.00 3072.00  232     
+## 3 信用卡   贷记卡       正常  90000.00  40031.00  4003.10  0       
+## 4 信用卡   贷记卡       正常  50000.00  50336.00  5033.60  0       
+## 5 信用卡   贷记卡       正常  50000.00  48313.00  4831.30  0       
+## 6 信用卡   贷记卡       正常  11000.00  10157.00  1015.70  0</code></pre>
+<p>Bingo!</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

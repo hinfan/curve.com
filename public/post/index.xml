@@ -6,10 +6,22 @@
     <description>Recent content in Posts on curve</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Faster</title>
+      <link>/2018/04/29/faster/</link>
+      <pubDate>Sun, 29 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/29/faster/</guid>
+      <description>得到同样结果的方式或许多种多样，但是简洁高效的方式或许要废些脑子。在 R 语言上追求更快，大致有三种方式：
+避免循环，使用向量化计算 如果无法避免，通过 Rcpp 将代码编译成 C++ 多线程  假如你有这样一组数据:
+head(data[2:4]) ## # A tibble: 6 x 3 ## 报告类型 分类 类别 ## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; ## 1 贷款,贷款,信用卡,信用卡,信用卡,信用卡,信用… 个人住房贷款,个人住房贷款,贷记卡,贷记卡,贷记卡,贷… 调动,调动,正常,正常,正常,正… ## 2 贷款,贷款,贷款,贷款,信用卡,信用卡,信用卡,… 个人住房贷款,个人消费贷款,个人消费贷款,个人经营性贷… 正常,正常,正常,正常,正常,正… ## 3 贷款,贷款,信用卡,贷款,贷款,贷款,贷款… 个人消费贷款,个人经营性贷款,贷记卡,其他,其他,其他… 正常,正常,正常,正常,正常,正… ## 4 贷款,贷款,贷款,信用卡,信用卡,信用卡,贷款… 个人经营性贷款,个人经营性贷款,个人经营性贷款,贷记卡… 正常,正常,正常,正常,正常,正… ## 5 贷款,信用卡,信用卡,信用卡 个人经营性贷款,贷记卡,贷记卡,贷记卡… 正常,正常,正常,正常… ## 6 贷款,信用卡,信用卡,信用卡,信用卡,信用卡,信… 个人经营性贷款,贷记卡,贷记卡,贷记卡,贷记卡,贷记卡… 正常,正常,正常,正常,正常,正… 数据框的每一行都折叠了若干条记录，不仅看起来让人觉得很不舒服，并且还无法向下进行分析。这里便需要将数据向下展开，每个格子放一个数据。无论如何我们都是要将数据拆开的：
+system.time(unfold &amp;lt;- strsplit(data$报告类型, &amp;quot;,&amp;quot;)) ## user system elapsed ## 0.017 0.000 0.017 虽然 strsplit() 返回的是列表，但是通过 unlist() 我们可以得到数据的一列。</description>
+    </item>
     
     <item>
       <title>讲不清楚的懂</title>
