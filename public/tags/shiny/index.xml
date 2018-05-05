@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny on curve</title>
+    <link>/tags/shiny/</link>
+    <description>Recent content in Shiny on curve</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slowly</title>
+      <link>/2018/05/05/slowly/</link>
+      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/05/slowly/</guid>
+      <description>这一周的节奏都是抬头一看时间怎么就10点多了，然后就洗洗睡了。不少一闪而过的念头到今天也就忘得差不多了，想记录的东西也没有来得及记录到博客。
+让人又爱又恨的 shiny 耗去了我大量时间，值得高兴的是今天看了 Shiny - Plot interaction - exclude 算是理解了一些 reactiveValues() 和 observeEvent() 的机制。过去自己做的大部分 app 都是依赖于 input$Value 或 reactive() 进行交互。
+抽时间做个梳理吧。对了，还有 observe() 和 isolate() 不是很清楚。
+反思 上篇博客的名字的是 Faster，今天这篇则是 Slowly。突然想到设计界有句名言
+ Less is More
+ 今天借用一下：“慢就是快”。常常面对新的问题的时候，往往都是一头扎进搜索引擎，或者不停的翻书。或许可以解决“一次性”问题，但往往是不解决根本问题。下次出现同样的问题时，也难以避免再次搜索或者翻书。
+为什么不能慢下来，思考一下，这个问题的本质是什么？同时我也发现有时候我对文字的理解差到极致，但是一看例子就瞬间全明白了。很奇怪哦，但是想想，其实静下来心慢慢看，反而会更节省时间。
+我写博客的时候大概是每分钟能写2到3个字，为什么记个流水账都这么费劲呢&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>
