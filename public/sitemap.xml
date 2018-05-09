@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/05/09/less-is-more/</loc>
+    <lastmod>2018-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/05/05/slowly/</loc>
     <lastmod>2018-05-05T00:00:00+00:00</lastmod>
   </url>
@@ -86,7 +91,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -134,7 +139,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
