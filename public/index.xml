@@ -6,10 +6,23 @@
     <description>Recent content on curve</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>想做的事情</title>
+      <link>/2018/05/21/%E6%83%B3%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/21/%E6%83%B3%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/</guid>
+      <description>梳理下想做的事情：
+ 想写一个函数包，通过 shiny 修改 ggplot 或者 plot 的颜色等性质。
+ 将平时用自己用的函数整理汇总成一个包
+ 简化 networkD3 的流程
+  </description>
+    </item>
     
     <item>
       <title>Less is More</title>
